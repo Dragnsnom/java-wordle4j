@@ -12,7 +12,6 @@ import ru.yandex.practicum.Exceptions.InvalidWordLengthException;
 import ru.yandex.practicum.Exceptions.WordNotFoundException;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -360,7 +359,7 @@ class WordleTest {
         void testLoadNonExistentFile() {
             WordleDictionaryLoader loader = new WordleDictionaryLoader(log);
 
-            assertThrows(FileNotFoundException.class, () -> {
+            assertThrows(DictionaryLoadException.class, () -> {
                 loader.loadDictionary("nonexistent_file.txt");
             });
         }
